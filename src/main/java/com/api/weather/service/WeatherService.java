@@ -29,7 +29,7 @@ public class WeatherService {
             throw new CityNotFoundException("Cidade não encontrada: " + city);
         }
 
-        GeocodingResult result = geocodingResponse.getResults().get(0);
+        GeocodingResult result = geocodingResponse.getResults().getFirst();
 
         CurrentWeatherResponse weatherResponse =
                 openMeteoClient.getCurrentWeather(result.getLatitude(), result.getLongitude());
